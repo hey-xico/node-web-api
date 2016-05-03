@@ -24,7 +24,7 @@ module.exports = function(app) { //receiving the app to register the endpoints
 			};
 			res.json({info: 'cats found successfully', data: cats});
 		});
-	
+
 	});
 
 	app.get('/cat/:id', function(req, res){
@@ -33,7 +33,7 @@ module.exports = function(app) { //receiving the app to register the endpoints
 				res.json({info: 'error during find cat', error: err})
 			};
 			if(cat){
-				res.json({info: 'cat found successfully', data: cat});	
+				res.json({info: 'cat found successfully', data: cat});
 			} else {
 				res.json({info: 'cat not found'});
 			}
@@ -44,18 +44,18 @@ module.exports = function(app) { //receiving the app to register the endpoints
 	app.put('/cat/:id', function(req, res){
 		Cat.findById(req.params.id, function(err, cat){
 			if(err) {
-				res.json((info: 'error during find cat', error: err})
+				res.json({info: 'error during find cat', error: err})
 			};
 			if(cat){
 				_.merge(cat, req.body);
 				cat.save(function(err){
 					if(err) {
-						res.json(info: 'error during cat Update', error: err)
+						res.json({info: 'error during cat Update', error: err})
 					};
 					res.json({info: 'cat updated successfully'});
 				});
 			} else {
-				res.json(info: 'cat not found');
+				res.json({info: 'cat not found'});
 			}
 		});
 	});
