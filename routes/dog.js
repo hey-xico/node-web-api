@@ -22,10 +22,10 @@ module.exports = function(app) { //receiving the app to register the endpoints
 			if(err) {
 				res.json({info: 'error during find dogs', error: err})
 			};
-			setTimeout(function() {
+			/*setTimeout(function() {
 				res.json({info: 'dogs found successfully', data: dogs});
-			}, 10000)
-			//res.json({info: 'dogs found successfully', data: dogs});
+			}, 10000)*/
+			res.json({info: 'dogs found successfully', data: dogs});
 		});
 
 	});
